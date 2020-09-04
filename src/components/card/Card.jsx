@@ -1,88 +1,174 @@
 import React from "react";
-import { GithubContext } from "../../context/Context";
+import { AppStateContext } from "../../context/Context";
 import styled from "styled-components";
 import { MdBusiness, MdLocationOn, MdLink } from "react-icons/md";
+import { AiOutlineTwitter } from "react-icons/ai";
+
 const Card = () => {
-  return <h2>card component</h2>;
+  const { User } = React.useContext(AppStateContext);
+  const {
+    login,
+    avatar_url,
+    html_url,
+    name,
+    company,
+    blog,
+    location,
+    bio,
+    twitter_username,
+  } = User;
+
+  return (
+    <CardWrapper className="user-profile user-section">
+      <nav className="card-header">
+        <div className="user-img user-block">
+          <div className="user-img-cover">
+            <img src={avatar_url} alt={name} />
+          </div>
+        </div>
+        <div className="user-basic-info user-block">
+          <div className="flex-shield">
+            <h3 className="user-name">{name}</h3>
+            <span className="user-userName">
+              <a href={html_url} className="user-profile-link">
+                @{login}
+              </a>
+            </span>
+          </div>
+        </div>
+        <div className="follow-user-container user-block">
+          <button className="follow-user">
+            <a href={html_url}>Follow {name.split(" ")[0]}</a>
+          </button>
+        </div>
+      </nav>
+
+      <section className="about-user">
+        <p className="bio">{bio}</p>
+        <ul className="user-more-info">
+          <li className="user-info location">
+            <span className="icon">{MdLocationOn()} </span>
+            {location}
+          </li>
+          <li className="user-info company">
+            <span className="icon">{MdBusiness()} </span>
+            {company}
+          </li>
+          <li className="user-info blog">
+            <span className="icon">{MdLink()} </span>
+            <a href={blog}>{blog}</a>
+          </li>
+          <li className="user-info twitter-username">
+            <span className="icon">{AiOutlineTwitter()}</span>@
+            {twitter_username}
+          </li>
+        </ul>
+      </section>
+    </CardWrapper>
+  );
 };
-const Wrapper = styled.article`
-  background: var(--clr-white);
-  padding: 1.5rem 2rem;
-  border-top-right-radius: var(--radius);
-  border-bottom-left-radius: var(--radius);
-  border-bottom-right-radius: var(--radius);
-  position: relative;
-  &::before {
-    content: "user";
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translateY(-100%);
-    background: var(--clr-white);
-    color: var(--clr-grey-5);
-    border-top-right-radius: var(--radius);
-    border-top-left-radius: var(--radius);
-    text-transform: capitalize;
-    padding: 0.5rem 1rem 0 1rem;
-    letter-spacing: var(--spacing);
-    font-size: 1rem;
+const CardWrapper = styled.main`
+  background: #fff;
+  padding: 2rem 0;
+
+  @media (max-width: 800px) {
+    .user-block {
+      min-width: 27vw !important;
+    }
   }
-  header {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
+
+  nav.card-header {
+    display: flex;
+    justify-content: flex-start;
     align-items: center;
-    column-gap: 1rem;
-    margin-bottom: 1rem;
-    img {
-      width: 75px;
-      height: 75px;
-      border-radius: 50%;
-    }
-    h4 {
-      margin-bottom: 0.25rem;
-    }
-    p {
-      margin-bottom: 0;
-    }
-    a {
-      color: var(--clr-primary-5);
-      border: 1px solid var(--clr-primary-5);
-      padding: 0.25rem 0.75rem;
-      border-radius: 1rem;
-      text-transform: capitalize;
-      letter-spacing: var(--spacing);
-      transition: var(--transition);
-      cursor: pointer;
-      &:hover {
-        background: var(--clr-primary-5);
-        color: var(--clr-white);
+
+    .user-img {
+      .user-img-cover {
+        width: 120px;
+        border-radius: 50%;
+        border: 2px solid #ddd;
+
+        img {
+          border-radius: 50%;
+        }
       }
     }
-  }
-  .bio {
-    color: var(--clr-grey-3);
-  }
-  .links {
-    p,
-    a {
-      margin-bottom: 0.25rem;
+    .user-basic-info {
+      display: block;
+      padding-top: 20px;
+      justify-content: end !important;
+
+      h3 {
+        margin: 0;
+        padding: 0;
+      }
+
+      a {
+        color: #196775;
+      }
+    }
+    .follow-user-container {
+      button {
+        padding: 0.8rem 0.6rem;
+        border: none;
+        background: #196775;
+        text-transform: uppercase;
+
+        a {
+          color: #fff;
+        }
+      }
+    }
+
+    .user-block {
       display: flex;
-      align-items: center;
-      svg {
-        margin-right: 0.5rem;
-        font-size: 1.3rem;
+      justify-content: center;
+      min-width: 13rem;
+
+      flex-shield {
+        display: flex;
       }
     }
-    a {
-      color: var(--clr-primary-5);
-      transition: var(--transition);
-      svg {
-        color: var(--clr-grey-5);
+  }
+
+  .about-user {
+    padding: 2rem 3rem;
+
+    ul {
+      li {
+        display: flex;
+        align-items: center;
+
+        .icon {
+          font-size: 18px;
+          display: block;
+          width: 30px;
+          height: 25px;
+        }
       }
-      &:hover {
-        color: var(--clr-primary-3);
+
+      .blog {
+        .icon {
+          font-size: 20px !important;
+          margin-top: 3px;
+        }
+      }
+
+      .twitter-username {
+        .icon {
+          margin-top: 3px;
+        }
+      }
+    }
+
+    .user-info.blog {
+      a {
+        color: #333;
+        text-decoration: underline;
       }
     }
   }
 `;
 export default Card;
+
+// import necessary mocks data from context:

@@ -6,7 +6,7 @@ const Dashboard = () => {
   return (
     <>
       <Info />
-      {/* <User /> */}
+      <User />
     </>
   );
 };
