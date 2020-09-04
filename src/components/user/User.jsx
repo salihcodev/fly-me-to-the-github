@@ -6,7 +6,7 @@ const User = () => {
   return (
     <UserWrapper>
       <Card />
-      {/* <Followers /> */}
+      <Followers />
     </UserWrapper>
   );
 };
