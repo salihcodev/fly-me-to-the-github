@@ -1,11 +1,48 @@
 import React from "react";
-import { GithubContext } from "../../context/Context";
+import { AppStateContext } from "../../context/Context";
 import styled from "styled-components";
 import { GoRepo, GoGist } from "react-icons/go";
 import { FiUsers, FiUserPlus } from "react-icons/fi";
 
+// components:
+import HeaderItem from "./HeaderItem";
+
 const UserInfo = () => {
-  return <h2>user info component</h2>;
+  // import necessary mocks data from context:
+  const { User } = React.useContext(AppStateContext);
+  const { public_repos, following, followers, public_gists } = User;
+
+  // setup user information fo display;
+  const UserHeaderData = [
+    {
+      icon: <GoRepo />,
+      numberFlag: public_repos,
+      subtitle: "Repositories",
+    },
+    {
+      icon: <FiUserPlus />,
+      numberFlag: following,
+      subtitle: "Following",
+    },
+    {
+      icon: <FiUsers />,
+      numberFlag: followers,
+      subtitle: "Followers",
+    },
+    {
+      icon: <GoGist />,
+      numberFlag: public_gists,
+      subtitle: "Gists",
+    },
+  ];
+
+  return (
+    <Wrapper>
+      {UserHeaderData.map((item) => (
+        <HeaderItem {...item} />
+      ))}
+    </Wrapper>
+  );
 };
 
 const Wrapper = styled.section`
@@ -14,49 +51,6 @@ const Wrapper = styled.section`
   gap: 1rem 2rem;
   @media (min-width: 640px) {
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  }
-  .item {
-    border-radius: var(--radius);
-    padding: 1rem 2rem;
-    background: var(--clr-white);
-    display: grid;
-    grid-template-columns: auto 1fr;
-    column-gap: 3rem;
-    align-items: center;
-    span {
-      width: 3rem;
-      height: 3rem;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-    }
-    .icon {
-      font-size: 1.5rem;
-    }
-    h3 {
-      margin-bottom: 0;
-      letter-spacing: 0;
-    }
-    p {
-      margin-bottom: 0;
-      text-transform: capitalize;
-    }
-    .pink {
-      background: #ffe0f0;
-      color: #da4a91;
-    }
-    .green {
-      background: var(--clr-primary-10);
-      color: var(--clr-primary-5);
-    }
-    .purple {
-      background: #e6e6ff;
-      color: #5d55fa;
-    }
-    .yellow {
-      background: #fffbea;
-      color: #f0b429;
-    }
   }
 `;
 
