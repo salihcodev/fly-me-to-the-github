@@ -23,7 +23,7 @@ export default // 20200904132700
   type: "User",
   site_admin: false,
   name: "Ahmed Salih",
-  company: null,
+  company: "Upwork",
   blog: "ahmedsalih.netlify.com",
   location: "Menufia Egypt",
   email: null,
