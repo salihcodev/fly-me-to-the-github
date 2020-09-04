@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Error = () => {
   return <h2>error page</h2>;
 };
-const Wrapper = styled.section`
+const PageWrapper = styled.section`
   min-height: 100vh;
   display: grid;
   place-items: center;
