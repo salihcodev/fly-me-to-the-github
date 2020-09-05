@@ -1,12 +1,25 @@
 import React from "react";
 import styled from "styled-components";
-import { GithubContext } from "../../context/Context";
-import { ExampleChart, Pie3D, Column3D, Bar3D, Doughnut2D } from "../charts";
+import { AppStateContext } from "../../context/Context";
+import {
+  ExampleChart,
+  Pie3D,
+  Column3D,
+  Bar3D,
+  Doughnut2D,
+} from "../charts/Centralize";
+
 const Repos = () => {
-  return <h2>repos component</h2>;
+  return (
+    <ReposWrapper>
+      <section className="firstChart">
+        <ExampleChart />
+      </section>
+    </ReposWrapper>
+  );
 };
 
-const Wrapper = styled.div`
+const ReposWrapper = styled.div`
   display: grid;
   justify-items: center;
   gap: 2rem;
