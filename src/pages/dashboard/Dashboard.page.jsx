@@ -12,6 +12,7 @@ const Dashboard = () => {
   if (Loading) {
     return (
       <>
+        <Header />
         <Search />
         <IsLoadingNow>
           <img src={loadingImage} alt="LOADING" />
@@ -21,6 +22,7 @@ const Dashboard = () => {
   } else {
     return (
       <>
+        <Header />
         <Search />
         <Info />
         <User />
