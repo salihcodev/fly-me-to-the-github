@@ -5,7 +5,8 @@ export default // 20200904132700
   login: "salihcodev",
   id: 45488156,
   node_id: "MDQ6VXNlcjQ1NDg4MTU2",
-  avatar_url: "https://avatars1.githubusercontent.com/u/45488156?v=4",
+  avatar_url: "",
+  // https://avatars1.githubusercontent.com/u/45488156?v=4
   gravatar_id: "",
   url: "https://api.github.com/users/salihcodev",
   html_url: "https://github.com/salihcodev",
