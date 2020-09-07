@@ -38,7 +38,7 @@ const Card = () => {
         </div>
         <div className="follow-user-container user-block">
           <button className="follow-user">
-            <a href={html_url}>Follow {name.split(" ")[0]}</a>
+            <a href={html_url}>Follow {name && name.split(" ")[0]}</a>
           </button>
         </div>
       </nav>
