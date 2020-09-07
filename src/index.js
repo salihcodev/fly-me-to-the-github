@@ -8,11 +8,17 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>
-    <AppStateProvider>
-      <Router>
-        <App />
-      </Router>
-    </AppStateProvider>
+    <Auth0Provider
+      domain="codev.us.auth0.com"
+      clientId="MkTsyH9OHfb1x961idPxgo9fseqoodMs"
+      redirectUri={window.location.origin}
+    >
+      <AppStateProvider>
+        <Router>
+          <App />
+        </Router>
+      </AppStateProvider>
+    </Auth0Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );
