@@ -1,5 +1,5 @@
 import React from "react";
-import { Info, Repos, User, Search, Header } from "../../components/Centralize";
+import { Info, Repos, User, Search } from "../../components/Centralize";
 import loadingImage from "../../images/preloader.gif";
 
 import styled from "styled-components";
@@ -12,7 +12,6 @@ const Dashboard = () => {
   if (Loading) {
     return (
       <>
-        <Header />
         <Search />
         <IsLoadingNow>
           <img src={loadingImage} alt="LOADING" />
@@ -22,7 +21,6 @@ const Dashboard = () => {
   } else {
     return (
       <>
-        <Header />
         <Search />
         <Info />
         <User />

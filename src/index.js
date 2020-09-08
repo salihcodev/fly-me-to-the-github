@@ -12,6 +12,7 @@ ReactDOM.render(
       domain="codev.us.auth0.com"
       clientId="MkTsyH9OHfb1x961idPxgo9fseqoodMs"
       redirectUri={window.location.origin}
+      cacheLocation="localstorage"
     >
       <AppStateProvider>
         <Router>
