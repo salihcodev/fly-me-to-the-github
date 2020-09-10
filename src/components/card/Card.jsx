@@ -19,7 +19,7 @@ const Card = () => {
   } = User;
 
   return (
-    <CardWrapper className="user-profile user-section">
+    <section className="user-profile user-section">
       <nav className="card-header">
         <div className="user-img user-block">
           <div className="user-img-cover">
@@ -43,7 +43,7 @@ const Card = () => {
         </div>
       </nav>
 
-      <section className="about-user">
+      <div className="about-user">
         <p className="bio">{bio}</p>
         <ul className="user-more-info">
           <li className="user-info location">
@@ -63,112 +63,10 @@ const Card = () => {
             {twitter_username}
           </li>
         </ul>
-      </section>
-    </CardWrapper>
+      </div>
+    </section>
   );
 };
-const CardWrapper = styled.main`
-  background: #fff;
-  padding: 2rem 0;
-
-  @media (max-width: 800px) {
-    .user-block {
-      min-width: 27vw !important;
-    }
-  }
-
-  nav.card-header {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-
-    .user-img {
-      .user-img-cover {
-        width: 120px;
-        border-radius: 50%;
-        border: 2px solid #ddd;
-
-        img {
-          border-radius: 50%;
-        }
-      }
-    }
-    .user-basic-info {
-      display: block;
-      padding-top: 20px;
-      justify-content: end !important;
-
-      h3 {
-        margin: 0;
-        padding: 0;
-      }
-
-      a {
-        color: #196775;
-      }
-    }
-    .follow-user-container {
-      button {
-        padding: 0.8rem 0.6rem;
-        border: none;
-        background: #196775;
-        text-transform: uppercase;
-
-        a {
-          color: #fff;
-        }
-      }
-    }
-
-    .user-block {
-      display: flex;
-      justify-content: center;
-      min-width: 13rem;
-
-      flex-shield {
-        display: flex;
-      }
-    }
-  }
-
-  .about-user {
-    padding: 2rem 3rem;
-
-    ul {
-      li {
-        display: flex;
-        align-items: center;
-
-        .icon {
-          font-size: 18px;
-          display: block;
-          width: 30px;
-          height: 25px;
-        }
-      }
-
-      .blog {
-        .icon {
-          font-size: 20px !important;
-          margin-top: 3px;
-        }
-      }
-
-      .twitter-username {
-        .icon {
-          margin-top: 3px;
-        }
-      }
-    }
-
-    .user-info.blog {
-      a {
-        color: #333;
-        text-decoration: underline;
-      }
-    }
-  }
-`;
 export default Card;
 
 // import necessary mocks data from context:

@@ -14,13 +14,5 @@ function AuthWrapper({ children }) {
   return <>{children}</>;
 }
 
-const PageWrapper = styled.section`
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
-  img {
-    width: 150px;
-  }
-`;
 
 export default AuthWrapper;

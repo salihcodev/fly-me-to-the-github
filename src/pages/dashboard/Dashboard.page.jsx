@@ -13,9 +13,13 @@ const Dashboard = () => {
     return (
       <>
         <Search />
-        <IsLoadingNow>
-          <img src={loadingImage} alt="LOADING" />
-        </IsLoadingNow>
+        <section>
+          <img
+            src={loadingImage}
+            alt="LOADING"
+            style={{ width: "150px", height: "150px", display: "block" }}
+          />
+        </section>
       </>
     );
   } else {
@@ -31,15 +35,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-
-const IsLoadingNow = styled.section`
-  text-align: center;
-  display: flex;
-  justify-content: center;
-
-  img {
-    width: 150px;
-    height: 150px;
-    display: block;
-  }
-`;
