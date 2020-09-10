@@ -1,10 +1,17 @@
-/*
+/* 
 =============== 
 Fonts
 ===============
 */
 @import url("https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&display=swap");
 
+body {
+  font-family: var(--sudo-ff);
+  background: var(--sudo-bkg-cl);
+  color: var(--sudo-ft-cl);
+  line-height: 1.5;
+  font-size: 0.875rem;
+}
 /*
 =============== 
 Variables
@@ -12,7 +19,7 @@ Variables
 */
 
 :root {
-  /* font families */
+  /* font families
   --sudo-ff: "PT Sans", sans-serif;
 
   /* fonts colors */
@@ -47,106 +54,3 @@ Variables
 Global Styles
 ===============
 */
-
-*,
-::after,
-::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-body {
-  font-family: var(--sudo-ff);
-  background: var(--sudo-bkg-cl);
-  color: var(--sudo-ft-cl);
-  line-height: 1.5;
-  font-size: 0.875rem;
-}
-ul {
-  list-style-type: none;
-}
-a {
-  text-decoration: none;
-}
-img {
-  width: 100%;
-  display: block;
-}
-
-h1,
-h2,
-h3,
-h4 {
-  text-transform: capitalize;
-  line-height: 1.25;
-  margin-bottom: 0.75rem;
-  font-family: var(--sudo-ff);
-  color: var(--alt-ft-cl);
-}
-h1 {
-  font-size: 3rem;
-}
-h2 {
-  font-size: 2rem;
-}
-h3 {
-  font-size: 1.25rem;
-}
-h4 {
-  font-size: 0.875rem;
-}
-p {
-  margin-bottom: 1.25rem;
-  color: var(--alt2-ft-cl);
-}
-@media screen and (min-width: 800px) {
-  h1 {
-    font-size: 4rem;
-  }
-  h2 {
-    font-size: 2.5rem;
-  }
-  h3 {
-    font-size: 1.75rem;
-  }
-  h4 {
-    font-size: 1rem;
-  }
-  body {
-    font-size: 1rem;
-  }
-  h1,
-  h2,
-  h3,
-  h4 {
-    line-height: 1;
-  }
-}
-/*  global classes */
-
-/* section */
-.section {
-  padding: 1rem 0;
-  position: relative;
-}
-
-.section-center {
-  width: 90vw;
-  margin: 0 auto;
-  max-width: 1170px;
-}
-@media screen and (min-width: 992px) {
-  .section-center {
-    width: 95vw;
-  }
-}
-.loading-img {
-  width: 20rem;
-  height: 20rem;
-  display: block;
-  margin: 0 auto;
-  margin-top: 10rem;
-}
-main {
-  padding-bottom: 2rem;
-}
