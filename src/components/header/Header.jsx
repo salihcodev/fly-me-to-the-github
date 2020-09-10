@@ -10,6 +10,7 @@ const Header = () => {
     logout,
     user,
   } = useAuth0();
+  
 
   const isUser = isAuthenticated && user;
 
