@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-const Error = () => {
+const NotFound = () => {
   return <h2>error page</h2>;
 };
 const PageWrapper = styled.section`
@@ -18,4 +18,4 @@ const PageWrapper = styled.section`
     margin-bottom: 1.5rem;
   }
 `;
-export default Error;
+export default NotFound;
