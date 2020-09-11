@@ -1,8 +1,6 @@
 import React from "react";
-import { Info, Repos, User, Search } from "../../components/Centralize";
+import { Info, Header, User, Search } from "../../components/Centralize";
 import loadingImage from "../../images/preloader.gif";
-
-import styled from "styled-components";
 
 import { AppStateContext } from "../../context/Context";
 
@@ -25,8 +23,16 @@ const Dashboard = () => {
   } else {
     return (
       <>
+        {/* navbar */}
+        <Header />
+
+        {/* search component */}
         <Search />
+
+        {/* user essential info [repos, followers, following ...]  */}
         <Info />
+
+        {/* about user component */}
         <User />
         {/* <Repos /> */}
       </>
