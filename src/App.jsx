@@ -2,7 +2,6 @@ import React from "react";
 
 // COMPONENTS:
 import SudoBtn from "./components/sudo-btn/SudoBtn";
-import { Header } from "./components/Centralize";
 
 // PAGES:
 import {
@@ -18,7 +17,6 @@ import { Switch, Route } from "react-router-dom";
 function App() {
   return (
     <AuthWrapper>
-      <Header />
       <Switch>
         <PrivateRoute exact path="/">
           <Dashboard />
@@ -31,9 +29,3 @@ function App() {
 }
 
 export default App;
-
-{
-  /* <SudoBtn bkgColor={"#125a96"} Color={"#f1f1f1"}>
-  Hello world
-</SudoBtn> */
-}
