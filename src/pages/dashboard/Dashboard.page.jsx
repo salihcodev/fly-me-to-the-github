@@ -1,6 +1,11 @@
 import React from "react";
-import { Info, Header, User, Search } from "../../components/Centralize";
-import loadingImage from "../../images/preloader.gif";
+import {
+  Info,
+  Header,
+  User,
+  Search,
+  MainLoading,
+} from "../../components/Centralize";
 
 import { AppStateContext } from "../../context/Context";
 
@@ -11,13 +16,8 @@ const Dashboard = () => {
     return (
       <>
         <Search />
-        <section>
-          <img
-            src={loadingImage}
-            alt="LOADING"
-            style={{ width: "150px", height: "150px", display: "block" }}
-          />
-        </section>
+        {/* loading */}
+        <MainLoading />
       </>
     );
   } else {
