@@ -1,17 +1,18 @@
 import React from "react";
-import styled from "styled-components";
 
 const HeaderItem = ({ icon, numberFlag, subtitle }) => {
   return (
-    <article>
-      <div className="item-icon">
-        <span>{icon}</span>
+    <main className="flex justify-center items-center">
+      <div className="icon-cont flex justify-center items-center w-12 h-12 mr-4 rounded-full item-icon p-4 text-2xl bg-gray-200">
+        <span className="text-gray-600">{icon}</span>
       </div>
       <div className="text">
-        <h3 className="num-flag">{numberFlag} </h3>
-        <span className="subtitle-flag">{subtitle} </span>
+        <h4 className="num-flag font-bold text-teal-800 text-2xl">
+          {numberFlag}{" "}
+        </h4>
+        <span className="subtitle-flag text-gray-600">{subtitle} </span>
       </div>
-    </article>
+    </main>
   );
 };
 

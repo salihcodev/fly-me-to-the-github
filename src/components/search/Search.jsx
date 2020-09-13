@@ -20,11 +20,11 @@ const Search = () => {
   };
 
   return (
-    <SearchWrapper>
-      <section className="search-user">
+    <SearchWrapper className="border-gray-500 border border-solid rounded-md mb-16 py-4 px-6 ">
+      <section className="search-user mb-4">
         {/* ERROR */}
         {Error.show && <p className="err-msg">{Error.msg}</p>}
-        <form className="form-control" onSubmit={Submission}>
+        <form className="form-control w-full flex" onSubmit={Submission}>
           <input
             type="text"
             name="search-user"
@@ -32,26 +32,46 @@ const Search = () => {
             placeholder="Type github username"
             value={User}
             onChange={(e) => setUser(e.target.value)}
+            className="w-8 rounded-tl-md rounded-bl-md border border-gray-600 border-solid border-r-0 pl-2"
           />
           {Requisites > 0 && (
-            <button type="submit">
-              <MdSearch /> Search
+            <button
+              type="submit"
+              className="flex-grow flex justify-around items-center text-gray-100 bg-teal-900 p-2 border border-gray-600 border-solid rounded-tr-md rounded-br-md border-l-0"
+            >
+              <span className="text">Search</span>
+              <span className="icon text-2xl">
+                <MdSearch />
+              </span>
             </button>
           )}
         </form>
       </section>
 
       <section className="requisites">
-        <p>
-          <h4 className="statistic-req">requisites {Requisites}/60</h4>
-          <span className="spent-req">
-            you spent ({60 - Requisites}) requisites
-          </span>
-        </p>
+        <div>
+          <h4 className="statistic-req text-gray-700">
+            Available requisites{" "}
+            <span className="req-num font-bold">{Requisites}/60</span>
+          </h4>
+          <p className="spent-req text-gray-700">
+            You spent{" "}
+            <span className="spent-req-num text-teal-900 font-bold">
+              ({60 - Requisites})
+            </span>{" "}
+            requisites
+          </p>
+        </div>
       </section>
     </SearchWrapper>
   );
 };
 
-const SearchWrapper = styled.div``;
+const SearchWrapper = styled.section`
+  form {
+    input[type="text"] {
+      flex-grow: 10;
+    }
+  }
+`;
 export default Search;

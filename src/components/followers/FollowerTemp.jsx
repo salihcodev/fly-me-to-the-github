@@ -3,24 +3,22 @@ import styled from "styled-components";
 
 const FollowerTemp = ({ login, avatar_url, html_url }) => {
   return (
-    <section>
-      <div className="follower-block">
-        <div
-          className="follower-avatar"
-        >
-          <img
-            src={avatar_url}
-            alt={login}
-            style={{ borderRadius: "50%", width: "100px", height: "100px" }}
-          />
+    <FollowerTemplate className="follower-temp">
+      <div className="follower-block flex align-start  mb-1 py-2">
+        <div className="follower-avatar w-12 rounded-full mr-3">
+          <img src={avatar_url} alt={login} className="rounded-full w-full" />
         </div>
         <div className="follower-info">
-          <h5 className="follower-name">{login}</h5>
-          <span className="follower-profile">{html_url}</span>
+          <h5 className="follower-name font-bold text-gray-700">{login}</h5>
+          <a href={html_url} className="follower-profile text-gray-500 text-sm">
+            {html_url}
+          </a>
         </div>
       </div>
-    </section>
+    </FollowerTemplate>
   );
 };
 
 export default FollowerTemp;
+
+const FollowerTemplate = styled.section``;

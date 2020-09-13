@@ -6,27 +6,31 @@ import {
   Search,
   MainLoading,
 } from "../../components/Centralize";
+import styled from "styled-components";
 
 import { AppStateContext } from "../../context/Context";
 
 const Dashboard = () => {
   const { Loading } = React.useContext(AppStateContext);
 
-  if (Loading) {
-    return (
-      <>
+  return Loading ? (
+    // true
+    <>
+      {/* header */}
+      <Header />
+      <DashboardWrapper className="grid">
+        {/* find search query */}
         <Search />
-        {/* loading */}
-        <MainLoading />
-      </>
-    );
-  } else {
-    return (
-      <>
-        {/* navbar */}
-        <Header />
 
-        {/* search component */}
+        {/* It's LOOOOOOADER */}
+        <MainLoading />
+      </DashboardWrapper>
+    </>
+  ) : (
+    // false
+    <>
+      <Header />
+      <DashboardWrapper>
         <Search />
 
         {/* user essential info [repos, followers, following ...]  */}
@@ -34,10 +38,18 @@ const Dashboard = () => {
 
         {/* about user component */}
         <User />
-        {/* <Repos /> */}
-      </>
-    );
-  }
+      </DashboardWrapper>
+    </>
+  );
 };
 
 export default Dashboard;
+
+const DashboardWrapper = styled.main`
+  padding: 2rem 6rem;
+
+  .grid-cont {
+    grid-template-columns: auto 1fr;
+    grid-column-gap: 1rem;
+  }
+`;
