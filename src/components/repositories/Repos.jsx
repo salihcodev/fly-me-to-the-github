@@ -11,14 +11,16 @@ import {
 
 const Repos = () => {
   return (
-    <section>
+    <UserRepos className="border-gray-500 border border-solid rounded-lg p-6">
       <section className="firstChart">
-        <ExampleChart />
+        <h2 className="font-bold">Repos will be displayed here!!</h2>
       </section>
-    </section>
+    </UserRepos>
   );
 };
 
-
-
 export default Repos;
+
+const UserRepos = styled.section`
+  border-color: #dedede;
+`;

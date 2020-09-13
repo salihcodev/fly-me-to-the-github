@@ -37,21 +37,17 @@ const UserInfo = () => {
   ];
 
   return (
-    <Wrapper>
+    <UserInfoWrapper className="border-gray-500 border border-solid rounded-md mb-8 py-4 px-6">
       {UserHeaderData.map((item) => (
         <HeaderItem {...item} />
       ))}
-    </Wrapper>
+    </UserInfoWrapper>
   );
 };
 
-const Wrapper = styled.section`
+const UserInfoWrapper = styled.section`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 1rem 2rem;
-  @media (min-width: 640px) {
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  }
+  grid-template-columns: repeat(4, 1fr);
 `;
 
 export default UserInfo;
