@@ -5,8 +5,19 @@ import Repos from "./repositories/Repos";
 import User from "./user/User";
 import Search from "./search/Search";
 import Header from "./header/Header";
+import Footer from "./footer/Footer";
 import Card from "./header/Header";
 import Followers from "./followers/Followers";
 import MainLoading from "./loading/Loading";
 
-export { Info, Repos, User, Search, Header, Card, Followers, MainLoading };
+export {
+  Info,
+  Footer,
+  Repos,
+  User,
+  Search,
+  Header,
+  Card,
+  Followers,
+  MainLoading,
+};
