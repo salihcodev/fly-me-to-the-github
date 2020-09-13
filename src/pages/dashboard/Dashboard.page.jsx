@@ -2,6 +2,7 @@ import React from "react";
 import {
   Info,
   Header,
+  Footer,
   User,
   Search,
   MainLoading,
@@ -39,6 +40,9 @@ const Dashboard = () => {
         {/* about user component */}
         <User />
       </DashboardWrapper>
+
+      {/* footer */}
+      <Footer />
     </>
   );
 };
