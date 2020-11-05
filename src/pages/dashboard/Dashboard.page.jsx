@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Info,
   Header,
@@ -6,10 +6,11 @@ import {
   User,
   Search,
   MainLoading,
-} from "../../components/Centralize";
-import styled from "styled-components";
+} from '../../components/Centralize';
+import styled from 'styled-components';
 
-import { AppStateContext } from "../../context/Context";
+import { AppStateContext } from '../../context/Context';
+document.title = `Dashboard | Fly me to the github`;
 
 const Dashboard = () => {
   const { Loading } = React.useContext(AppStateContext);

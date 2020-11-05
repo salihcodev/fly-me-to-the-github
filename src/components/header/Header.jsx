@@ -1,9 +1,9 @@
-import React from "react";
-import { useAuth0 } from "@auth0/auth0-react";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
-import AppLogo from "../../assets/app-logo.svg";
-import { AiOutlineLogout } from "react-icons/ai";
+import React from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import AppLogo from '../../assets/app-logo.svg';
+import { AiOutlineLogout } from 'react-icons/ai';
 
 const Header = () => {
   const { isAuthenticated, logout, user } = useAuth0();
@@ -15,7 +15,7 @@ const Header = () => {
   const isUser = isAuthenticated && user;
 
   return (
-    <HeaderWrapper className="flex pt-2 pb-10 px-4 mb-20 h-20  items-baseline">
+    <HeaderWrapper className="flex pt-2 pb-10 px-4 mb-40 h-20  items-baseline">
       <div className="logo-container flex-grow flex-row-reverse">
         <Link to="/">
           <img src={AppLogo} alt="fly-me-to-the-github logo" className="h-16" />
@@ -33,19 +33,20 @@ const Header = () => {
               className="h-12 rounded-full 
               border-solid border-4
               border-gray-400"
-              onClick={() => userInfo.current.classList.toggle("toggler")}
+              onClick={() => userInfo.current.classList.toggle('toggler')}
             />
           )}
 
           {/* user info */}
           <div
-            className="user-info w-48 p-2 absolute  border-solid border border-gray-400 rounded-md "
+            className="user-info w-48 p-2 absolute  border-solid border border-gray-400 rounded-md bg-white"
             ref={userInfo}
           >
-            {""}
+            {''}
             {isUser && user.name && (
               <h4 className="">
-                <strong>{user.name.toUpperCase()}</strong>
+                <span className="block">Hello,</span>
+                <b>{user.name.split('@')[0].toUpperCase()}</b>
               </h4>
             )}
 
@@ -77,7 +78,7 @@ const HeaderWrapper = styled.header`
         display: none;
 
         &::before {
-          content: "";
+          content: '';
           display: block;
           width: 13px;
           height: 13px;

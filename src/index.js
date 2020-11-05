@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./styles/index.css";
+import "./styles/globals.sass"
 import App from "./App.jsx";
 import { AppStateProvider } from "./context/Context";
 import { Auth0Provider } from "@auth0/auth0-react";

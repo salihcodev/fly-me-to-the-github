@@ -1,23 +1,20 @@
-import React from "react";
-import mockUser from "./mockData.js/mockUser";
-import mockRepos from "./mockData.js/mockRepos";
-import mockFollowers from "./mockData.js/mockFollowers";
-import axios from "axios";
+import React from 'react';
+import axios from 'axios';
 
 // API source:
-const rootUrl = "https://api.github.com";
+const rootUrl = 'https://api.github.com';
 
 // context context-aria:
 const AppStateContext = React.createContext();
 
 // context provider:
 const AppStateProvider = ({ children }) => {
-  const [User, setUser] = React.useState(mockUser);
-  const [Repos, setRepos] = React.useState(mockRepos);
-  const [Followers, setFollowers] = React.useState(mockFollowers);
+  const [User, setUser] = React.useState({});
+  const [Repos, setRepos] = React.useState([]);
+  const [Followers, setFollowers] = React.useState([]);
   const [Requisites, setRequisites] = React.useState(0);
   const [Loading, setLoading] = React.useState(false);
-  const [Error, setError] = React.useState({ show: false, msg: " " });
+  const [Error, setError] = React.useState({ show: false, msg: ' ' });
 
   // check wether the IP address has requisites or not.
   const CheckReq = () => {
@@ -30,7 +27,7 @@ const AppStateProvider = ({ children }) => {
         if (remaining !== 0) {
           setRequisites(remaining);
         } else {
-          toggleError(true, "error");
+          toggleError(true, 'error');
         }
       })
       .catch((err) => console.log(err));
@@ -53,8 +50,7 @@ const AppStateProvider = ({ children }) => {
     if (response) {
       setUser(response.data);
       // fill the follower and repos:
-      const { login, followers_url, repos_url } = response.data;
-      console.log(login, followers_url, repos_url);
+      const { followers_url, repos_url } = response.data;
 
       // followers:
       axios(`${followers_url}?per_page=100`).then((res) =>
@@ -64,7 +60,10 @@ const AppStateProvider = ({ children }) => {
       // repos:
       axios(`${repos_url}?per_page=100`).then((res) => setRepos(res.data));
     } else {
-      toggleError(true, `there is no user matches your search query  ${user}`);
+      toggleError(true, `there is no user matches your search query (${user})`);
+      setUser({});
+      setRepos([]);
+      setFollowers([]);
     }
 
     // end loading:
@@ -72,7 +71,7 @@ const AppStateProvider = ({ children }) => {
     CheckReq();
   };
 
-  const toggleError = (show = false, msg = "") => {
+  const toggleError = (show = false, msg = '') => {
     setError({ show, msg });
   };
   React.useEffect(CheckReq, []);
