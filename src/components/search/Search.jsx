@@ -32,17 +32,18 @@ const Search = () => {
             <p className="inline mt-2 font-semibold">{Error.msg}</p>
           </h4>
         )}
-        <form className="form-control w-full flex" onSubmit={Submission}>
-          <input
-            type="text"
-            name="search-user"
-            id="search-user"
-            placeholder="Type github username"
-            value={User}
-            onChange={(e) => setUser(e.target.value)}
-            className="w-8 rounded-tl-md rounded-bl-md border border-gray-600 border-solid border-r-0 pl-2"
-          />
-          {Requisites > 0 && (
+        {Requisites > 0 && (
+          <form className="form-control w-full flex" onSubmit={Submission}>
+            <input
+              type="text"
+              name="search-user"
+              id="search-user"
+              placeholder="Type github username"
+              value={User}
+              onChange={(e) => setUser(e.target.value)}
+              className="w-8 rounded-tl-md rounded-bl-md border border-gray-600 border-solid border-r-0 pl-2"
+            />
+
             <button
               type="submit"
               className="flex-grow flex justify-around items-center text-gray-100 bg-teal-900 p-2 border border-gray-600 border-solid rounded-tr-md rounded-br-md border-l-0"
@@ -52,8 +53,8 @@ const Search = () => {
                 <MdSearch />
               </span>
             </button>
-          )}
-        </form>
+          </form>
+        )}
       </section>
 
       <section className="requisites">
@@ -64,7 +65,11 @@ const Search = () => {
           </h4>
           <p className="spent-req text-gray-700">
             You spent{' '}
-            <span className="spent-req-num text-teal-900 font-bold">
+            <span
+              className={`spent-req-num font-bold ${
+                Requisites > 0 ? 'text-gray-700' : 'text-red-700'
+              }`}
+            >
               ({60 - Requisites})
             </span>{' '}
             requisites

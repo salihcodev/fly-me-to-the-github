@@ -27,7 +27,10 @@ const AppStateProvider = ({ children }) => {
         if (remaining !== 0) {
           setRequisites(remaining);
         } else {
-          toggleError(true, 'error');
+          toggleError(
+            true,
+            'You ran out of requisites, You spent your 60 requisites, which is remounted every 1hour/IP. please waite for remounting again :)'
+          );
         }
       })
       .catch((err) => console.log(err));
