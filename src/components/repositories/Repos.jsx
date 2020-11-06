@@ -19,14 +19,15 @@ const Repos = () => {
   const isUserReposEmpty = Repos.length === 0;
 
   return !isUserReposEmpty ? (
-    <UserRepos className="repos-section relative border-gray-500 border border-solid rounded-lg p-6 rounded-tl-none">
+    <UserRepos className="repos-section relative p-6 mt-20 border border-solid border-gray-600 rounded-lg rounded-tl-none">
       <SectionsFlag>{name && name.split(' ')[0]} Repositories</SectionsFlag>
       <section className="firstChart">
         <h2 className="font-bold">Repos will be displayed here!!</h2>
       </section>
     </UserRepos>
   ) : (
-    <UserReposNotFound className="border-gray-500 border border-solid rounded-lg p-6">
+    <UserReposNotFound className="flex items-center justify-center relative p-6 mt-20 border border-solid border-gray-600 rounded-lg rounded-tl-none">
+      <SectionsFlag>{name && name.split(' ')[0]} Repositories</SectionsFlag>
       <h5 className="font-bold">
         @{login} has no repositories yet to display :I
       </h5>
@@ -36,15 +37,9 @@ const Repos = () => {
 
 export default Repos;
 
-const UserRepos = styled.section`
-  border-color: #dedede;
-`;
+const UserRepos = styled.section``;
 
 const UserReposNotFound = styled.section`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: none;
   h5 {
     font-size: 0.9rem;
   }

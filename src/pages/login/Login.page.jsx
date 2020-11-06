@@ -100,7 +100,7 @@ const Login = () => {
           <button
             onClick={loginWithRedirect}
             title="Fly on github"
-            className="logging-btn w-screen border-2 border-gray-300 text-white py-4 px-6 flex justify-center font-bold rounded-md"
+            className="logging-btn w-screen border-2 border-gray-300 text-white py-4 px-6 flex justify-center font-bold bg-teal-800 rounded-md border-teal-900"
           >
             <span className="text">Login / Sign up</span>
             <span className="icon pl-4 pt-1">{FaLongArrowAltRight()} </span>
@@ -116,6 +116,14 @@ export default Login;
 const LoginPageWrapper = styled.main`
   padding: 0 1rem 3rem;
   transition: all ease-in-out 0.5s;
+
+  .logging-btn {
+    transition: all ease-in-out 0.3s;
+    &:hover {
+      transform: scale(1.06);
+    }
+  }
+
   .note-txt {
     max-width: 40rem;
   }
@@ -131,10 +139,6 @@ const LoginPageWrapper = styled.main`
     .to-copy {
       top: 5px;
       right: 3px;
-    }
-
-    .logging-btn {
-      background: #234e52;
     }
   }
 `;

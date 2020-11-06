@@ -14,7 +14,7 @@ const AppStateProvider = ({ children }) => {
   const [Followers, setFollowers] = React.useState([]);
   const [Requisites, setRequisites] = React.useState(0);
   const [Loading, setLoading] = React.useState(false);
-  const [Error, setError] = React.useState({ show: false, msg: ' ' });
+  const [Error, setError] = React.useState({ show: false, msg: `` });
 
   // check wether the IP address has requisites or not.
   const CheckReq = () => {
@@ -29,7 +29,7 @@ const AppStateProvider = ({ children }) => {
         } else {
           toggleError(
             true,
-            'You ran out of requisites, You spent your 60 requisites, which is remounted every 1hour/IP. please waite for remounting again :)'
+            `You ran out of requisites, You spent your 60 requisites, which is remounted every 1hour/IP. please waite for remounting again :)`
           );
         }
       })
@@ -62,8 +62,17 @@ const AppStateProvider = ({ children }) => {
 
       // repos:
       axios(`${repos_url}?per_page=100`).then((res) => setRepos(res.data));
+
+      // get user to search results:
+      animateToResult();
     } else {
+      // set body to actual height value:
+      setBodyHeight();
+
+      // through an error
       toggleError(true, `there is no user matches your search query (${user})`);
+
+      // reset last search result:
       setUser({});
       setRepos([]);
       setFollowers([]);
@@ -74,7 +83,16 @@ const AppStateProvider = ({ children }) => {
     CheckReq();
   };
 
-  const toggleError = (show = false, msg = '') => {
+  const setBodyHeight = () => {
+    document.body.style.minHeight = `30rem`;
+  };
+
+  const animateToResult = () => {
+    document.body.style.minHeight = `80rem`;
+    window.scroll({ top: 400, left: 400, behavior: `smooth` });
+  };
+
+  const toggleError = (show = false, msg = ``) => {
     setError({ show, msg });
   };
   React.useEffect(CheckReq, []);

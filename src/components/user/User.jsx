@@ -16,8 +16,8 @@ const User = () => {
 
   return (
     !isUserEmpty && (
-      <section className="user mt-40">
-        <UserWrapper className="grid">
+      <section className="user mt-10">
+        <UserWrapper className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4">
           <Card />
           <Repos />
           <Followers />
@@ -29,7 +29,4 @@ const User = () => {
 
 export default User;
 
-const UserWrapper = styled.main`
-  grid-template-columns: 1fr 3fr 1fr;
-  grid-column-gap: 1rem;
-`;
+const UserWrapper = styled.main``;

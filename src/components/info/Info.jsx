@@ -47,7 +47,7 @@ const UserInfo = () => {
 
   return (
     !isUserEmpty && (
-      <UserInfoWrapper className="user-info-section relative border-gray-500 border border-solid rounded-md mb-8 py-4 px-6 rounded-tl-none mt-48">
+      <UserInfoWrapper className="grid lg:grid-cols-4 md:grid-cols-2 gap-4 user-info-section relative border-gray-500 border border-solid rounded-md mb-20 py-4 px-1 rounded-tl-none mt-40">
         <SectionsFlag>{name && name.split(' ')[0]} Information</SectionsFlag>
         {UserHeaderData.map((item) => (
           <HeaderItem {...item} />
@@ -57,9 +57,6 @@ const UserInfo = () => {
   );
 };
 
-const UserInfoWrapper = styled.section`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-`;
+const UserInfoWrapper = styled.section``;
 
 export default UserInfo;

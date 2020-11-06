@@ -46,7 +46,7 @@ const Search = () => {
 
             <button
               type="submit"
-              className="flex-grow flex justify-around items-center text-gray-100 bg-teal-900 p-2 border border-gray-600 border-solid rounded-tr-md rounded-br-md border-l-0"
+              className="flex-grow flex justify-around items-center text-gray-100 bg-teal-800 p-2 border border-gray-600 border-solid rounded-tr-md rounded-br-md border-l-0"
             >
               <span className="text">Search</span>
               <span className="icon text-2xl">

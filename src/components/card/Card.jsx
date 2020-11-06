@@ -19,7 +19,7 @@ const Card = () => {
   } = User;
 
   return (
-    <UserProfile className="user-profile-section border border-solid rounded-lg shadow-lg p-4">
+    <UserProfile className="grid user-profile-section p-6 mt-20 shadow-lg border border-solid border-gray-600 rounded-lg">
       <section className="card-header">
         {/* user img */}
         <div className="user-img flex justify-center -mt-24 ">
@@ -33,13 +33,13 @@ const Card = () => {
         </div>
 
         {/* user basic info */}
-        <div className="user-basic-info text-center mb-10 mt-6">
+        <div className="user-basic-info text-center mt-6">
           {name ? (
-            <h3 className="user-name font-bold text-gray-800 text-2xl">
+            <h3 className="user-name mb-4 font-bold text-gray-800 text-2xl">
               {name}
             </h3>
           ) : (
-            <h3 className="user-name font-bold text-gray-800 text-2xl">
+            <h3 className="user-name mb-4 font-bold text-gray-800 text-2xl">
               github user
             </h3>
           )}
@@ -52,7 +52,7 @@ const Card = () => {
       </section>
 
       {/* user data */}
-      <div className="about-data mb-12">
+      <div className="about-data">
         {bio && <p className="bio text-gray-600 mb-4">{bio}</p>}
         <ul className="user-more-info">
           <li className="flex items-center">
@@ -117,10 +117,10 @@ const Card = () => {
       </div>
 
       {/* follower this user */}
-      <div className="follow-user-container user-block">
+      <div className="follow-user-container user-block flex items-end">
         <a
           href={html_url}
-          className="follow-user block text-center font-bold text-lg w-full border-solid border-2 border-teal-900 bg-teal-900 text-gray-100 py-2"
+          className="follow-user block text-center font-bold text-lg w-full border-solid border-2 border-teal-900 bg-teal-800 rounded-md text-gray-100 py-2 w-full h-12"
         >
           {name ? `Follow ${name.split(' ')[0]}` : `Follow ${login}`}
         </a>

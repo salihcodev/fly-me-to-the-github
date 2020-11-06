@@ -20,7 +20,7 @@ const Dashboard = () => {
     <>
       {/* header */}
       <Header />
-      <DashboardWrapper className="grid">
+      <DashboardWrapper className="grid container mx-auto px-4">
         {/* find search query */}
         <Search />
 
@@ -32,7 +32,7 @@ const Dashboard = () => {
     // false
     <>
       <Header />
-      <DashboardWrapper>
+      <DashboardWrapper className="container mx-auto px-4">
         <Search />
 
         {/* user essential info [repos, followers, following ...]  */}
@@ -50,11 +50,4 @@ const Dashboard = () => {
 
 export default Dashboard;
 
-const DashboardWrapper = styled.main`
-  padding: 2rem 6rem;
-
-  .grid-cont {
-    grid-template-columns: auto 1fr;
-    grid-column-gap: 1rem;
-  }
-`;
+const DashboardWrapper = styled.main``;

@@ -15,17 +15,30 @@ const Header = () => {
   const isUser = isAuthenticated && user;
 
   return (
-    <HeaderWrapper className="flex pt-2 pb-10 px-4 mb-40 h-20  items-baseline">
+    <HeaderWrapper className="flex pt-2 pb-10 mb-40 h-20  items-baseline container mx-auto px-4">
       <div className="logo-container flex-grow flex-row-reverse">
         <Link to="/">
-          <img src={AppLogo} alt="fly-me-to-the-github logo" className="h-16" />
+          <img
+            src={AppLogo}
+            alt="fly-me-to-the-github logo"
+            className="h-16"
+          />
         </Link>
       </div>
 
       {/* USER BLOCK */}
       <div className="user-container h-20 py-4 px-2 mb-20 flex-grow flex justify-end">
         {/* user image */}
-        <div className="user-img relative cursor-pointer">
+        <div
+          className="user-img relative cursor-pointer rounded-full"
+          tabIndex="0"
+          onClick={() => userInfo.current.classList.toggle('toggler')}
+          onKeyPress={(e) => {
+            const keyVal = e.key;
+            (keyVal === ' ' || keyVal === 'Enter') &&
+              userInfo.current.classList.toggle('toggler');
+          }}
+        >
           {isUser && user.picture && (
             <img
               src={user.picture}
@@ -33,7 +46,6 @@ const Header = () => {
               className="h-12 rounded-full 
               border-solid border-4
               border-gray-400"
-              onClick={() => userInfo.current.classList.toggle('toggler')}
             />
           )}
 

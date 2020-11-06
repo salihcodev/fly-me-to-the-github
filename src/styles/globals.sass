@@ -1,27 +1,45 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap')
 
+// local vars
 $sudo-font: 'Noto Sans', sans-serif
 
+// GLOBAL STYLE:
 html
   scroll-behavior: smooth
   &,body
-    font-family: $sudo-font
+    font-family: $sudo-font !important
 
 *::selection
   background: #111
   color: #ddd
 
-// GLOBAL STYLE:
-.logging-btn
-  transition: all ease-in-out 0.3s
+// customizing scrollbar
+\::-webkit-scrollbar
+  width: 10px
+
+\::-webkit-scrollbar-thumb
+  background: #718096
+  border: 22px none #ffffff
+  border-radius: 2px
+
   &:hover
-    transform: scale(1.06)
+    background: #4e5d72
+
+  &:active
+    background: #2a6166
+
+\::-webkit-scrollbar-track
+  background: #e1e1e1
+  border: 0px none #ffffff
+  border-radius: 2px
+
+\::-webkit-scrollbar-corner
+  background: transparent
 
 // ANIMATING SECTIONS:
 // no user alert
 .no-user-error
-  animation: error-translate linear 0.5s
-
+  animation: error-translate linear 0.3s
 @keyframes error-translate
   0%
     transform: scale(0)

@@ -7,8 +7,8 @@ import { FiAtSign } from 'react-icons/fi';
 
 const Footer = () => {
   return (
-    <FooterWrapper className="px-10 mt-32 h-20  items-baseline ">
-      <main className="footer-container flex  border-t solid border-gray-400 pt-4">
+    <FooterWrapper className="px-10 mt-40 h-20  items-baseline ">
+      <main className="footer-container flex border-t solid border-gray-400 pt-4">
         {/* author section */}
         <div className="author flex-grow text-left">
           <p className="author-phrase  text-gray-700 text-sm flex items-center">
